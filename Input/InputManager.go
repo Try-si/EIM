@@ -1,4 +1,4 @@
-package input
+package Input
 
 import "github.com/hajimehoshi/ebiten"
 
