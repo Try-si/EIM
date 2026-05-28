@@ -1,9 +1,17 @@
 package Input
 
-import "github.com/hajimehoshi/ebiten"
+import (
+	ETMHelper "github.com/Try-si/ETM/Helper"
+	"github.com/hajimehoshi/ebiten"
+)
 
 type InputManager struct {
 	Bindings map[string]int
+}
+
+func NewInputManager() *InputManager {
+	im := ETMHelper.Jsontostruct[*InputManager]("config.json")
+	return im
 }
 
 func (im *InputManager) AddBinding(name string, key int) {
