@@ -1,4 +1,4 @@
-package Input
+package EInputManager
 
 import (
 	ETMHelper "github.com/Try-si/ETM/Helper"
