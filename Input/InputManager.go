@@ -2,7 +2,7 @@ package Input
 
 import (
 	ETMHelper "github.com/Try-si/ETM/Helper"
-	"github.com/hajimehoshi/ebiten"
+	"github.com/hajimehoshi/ebiten/v2"
 )
 
 type InputManager struct {
