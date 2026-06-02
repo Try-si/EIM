@@ -6,11 +6,13 @@ import (
 )
 
 type InputManager struct {
-	Bindings map[string]int
+	Bindings     map[string]int
+	previousKeys map[ebiten.Key]bool
 }
 
 func NewInputManager(ConfigPath string) *InputManager {
 	im := ETMHelper.Jsontostruct[*InputManager](ConfigPath)
+	im.previousKeys = make(map[ebiten.Key]bool)
 	return im
 }
 
@@ -53,4 +55,26 @@ func (im *InputManager) IsKeyPressed(binding string) bool {
 		return false
 	}
 	return ebiten.IsKeyPressed(ebiten.Key(key))
+}
+
+func (im *InputManager) IsKeyJustPressed(binding string) bool {
+	key, ok := im.Bindings[binding]
+	if !ok {
+		return false
+	}
+	currentPressed := ebiten.IsKeyPressed(ebiten.Key(key))
+	wasPressed := im.previousKeys[ebiten.Key(key)]
+	return currentPressed && !wasPressed
+}
+
+func (im *InputManager) Update() {
+	for key := range im.previousKeys {
+		im.previousKeys[key] = ebiten.IsKeyPressed(key)
+	}
+	for _, key := range im.Bindings {
+		k := ebiten.Key(key)
+		if _, exists := im.previousKeys[k]; !exists {
+			im.previousKeys[k] = ebiten.IsKeyPressed(k)
+		}
+	}
 }
