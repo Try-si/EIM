@@ -9,8 +9,8 @@ type InputManager struct {
 	Bindings map[string]int
 }
 
-func NewInputManager() *InputManager {
-	im := ETMHelper.Jsontostruct[*InputManager]("config.json")
+func NewInputManager(ConfigPath string) *InputManager {
+	im := ETMHelper.Jsontostruct[*InputManager](ConfigPath)
 	return im
 }
 
