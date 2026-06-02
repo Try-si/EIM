@@ -10,7 +10,15 @@ go get github.com/Try-si/EIM
 
 ## Utilisation
 
-### Création d'un fichier de configuration
+architecture minimal du projet:
+
+```files
+/
+ config.json
+ main.go
+```
+
+config.json 
 
 ```json
 {
@@ -22,7 +30,7 @@ go get github.com/Try-si/EIM
 }
 ```
 
-### Utilisation dans le code
+main.go
 
 ```go
 import "github.com/Try-si/EIM"
