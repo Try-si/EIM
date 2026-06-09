@@ -1,7 +1,7 @@
 package EInputManager
 
 import (
-	ETMHelper "github.com/Try-si/ETM/Helper"
+	ETMHelper "github.com/Try-si/ETE/ETEHelper"
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
@@ -11,7 +11,7 @@ type InputManager struct {
 }
 
 func NewInputManager(ConfigPath string) *InputManager {
-	im := ETMHelper.Jsontostruct[*InputManager](ConfigPath)
+	im := ETMHelper.JsonToStruct[*InputManager](ConfigPath)
 	im.previousKeys = make(map[ebiten.Key]bool)
 	return im
 }

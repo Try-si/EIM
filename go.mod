@@ -2,12 +2,10 @@ module github.com/Try-si/EIM
 
 go 1.25.2
 
-require (
-	github.com/Try-si/ETM v0.8.1
-	github.com/hajimehoshi/ebiten/v2 v2.9.9
-)
+require github.com/hajimehoshi/ebiten/v2 v2.9.9
 
 require (
+	github.com/Try-si/ETE v0.1.0 // indirect
 	github.com/Try-si/MathHelper v0.1.8 // indirect
 	github.com/disintegration/imaging v1.6.2 // indirect
 	github.com/ebitengine/gomobile v0.0.0-20250923094054-ea854a63cce1 // indirect
